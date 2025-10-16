@@ -1,0 +1,23 @@
+name: Multi-OS
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Display system info
+        run: |
+          echo "Running on ${{ runner.os }}"
+          uname -a || ver
+
+      - name: Platform test
+        run: |
+          echo "Hello from $RUNNER_OS"
