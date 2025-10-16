@@ -16,7 +16,7 @@ jobs:
       - name: Display system info
         run: |
           echo "Running on ${{ runner.os }}"
-          uname -a && ver
+          uname -a & ver
 
       - name: Platform test
         run: |
